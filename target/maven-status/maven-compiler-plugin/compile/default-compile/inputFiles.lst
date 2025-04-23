@@ -1,0 +1,14 @@
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/base/BasePage.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/base/BaseTest.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/base/DriverManager.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/pages/AdminPage.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/pages/DashboardPage.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/pages/ForgotLoginPage.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/pages/LoginPage.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/pages/UpgradePage.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/utils/ConfigReader.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/utils/listeners/RetryListener.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/utils/listeners/TestListener.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/utils/selenium/ScreenShotUtility.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/utils/selenium/sessionManager.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/utils/testNgUtils/retryAnalyzer.java

@@ -1,0 +1,40 @@
+version: "3"
+services:
+  selenium-hub:
+    image: selenium/hub:4.19.0
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+    environment:
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    volumes:
+      - ./logs/selenium-logs/hub:/opt/selenium/logs
+
+  chrome:
+    image: selenium/node-chrome:4.19.0
+    depends_on:
+      - selenium-hub
+    ports:
+      - "5555:5555"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    volumes:
+      - ./logs/selenium-logs/chrome:/opt/selenium/logs
+
+  firefox:
+    image: selenium/node-firefox:4.19.0
+    depends_on:
+      - selenium-hub
+    ports:
+      - "5556:5556"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    volumes:
+      - ./logs/selenium-logs/firefox:/opt/selenium/logs
