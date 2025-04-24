@@ -26,14 +26,14 @@ jobs:
           sudo chmod +x /usr/local/bin/docker-compose
           docker-compose version
 
-      - name: ⬇️ Install Allure CLI (manual)
-        run: |
-          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.27.0.tgz
-          tar -zxvf allure-2.27.0.tgz
-          sudo mv allure-2.27.0 /opt/allure
-          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
-          allure --version
-      
+#      - name: ⬇️ Install Allure CLI (manual)
+#        run: |
+#          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.27.0.tgz
+#          tar -zxvf allure-2.27.0.tgz
+#          sudo mv allure-2.27.0 /opt/allure
+#          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+#          allure --version
+
 
       - name: 🐳 Start Selenium Grid
         run: |
@@ -47,10 +47,10 @@ jobs:
         if: always()  # Ensures it runs even if tests fail
         run: docker-compose -f grid/docker-compose.yml down
 
-      - name: 🛠️ Generate Allure Report
-        run: |
-          allure generate target/allure-results -o target/allure-report --clean
-        continue-on-error: true  # Optional: avoid failing workflow if no Allure files
+#      - name: 🛠️ Generate Allure Report
+#        run: |
+#          allure generate target/allure-results -o target/allure-report --clean
+#        continue-on-error: true  # Optional: avoid failing workflow if no Allure files
 
       - name: 📤 Upload TestNG Report
         uses: actions/upload-artifact@v4
@@ -64,8 +64,8 @@ jobs:
           name: test-logs
           path: logs/
 
-      - name: 📤 Upload Allure Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report
-          path: target/allure-report/
+#      - name: 📤 Upload Allure Report
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: allure-report
+#          path: target/allure-report/
