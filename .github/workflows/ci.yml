@@ -26,6 +26,11 @@ jobs:
             sudo chmod +x /usr/local/bin/docker-compose
             docker-compose version
 
+      - name: ⬇️ Install Allure CLI
+        run: |
+            sudo apt-add-repository ppa:qameta/allure
+            sudo apt-get update
+            sudo apt-get install allure
 
       - name: 🐳 Start Selenium Grid
         run: |
@@ -38,3 +43,27 @@ jobs:
       - name: 🔻 Stop Selenium Grid
         if: always()
         run: docker-compose -f grid/docker-compose.yml down
+
+      - name: 📤 Upload TestNG Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: testng-report
+          path: test-output/emailable-report.html
+
+      - name: 📤 Upload Logs
+        uses: actions/upload-artifact@v3
+        with:
+            name: test-logs
+            path: logs/
+
+      - name: 🛠️ Generate Allure Report
+        run: |
+          allure generate allure-results -o allure-report --clean
+
+      - name: 📤 Upload Allure Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: test-output/allure-report/
+
+
