@@ -50,19 +50,19 @@ jobs:
         continue-on-error: true  # Optional: avoid failing workflow if no Allure files
 
       - name: 📤 Upload TestNG Report
-        uses: actions/upload-artifact@v3.1.3
+        uses: actions/upload-artifact@v4
         with:
           name: testng-report
           path: test-output/emailable-report.html
 
       - name: 📤 Upload Logs
-        uses: actions/upload-artifact@v3.1.3
+        uses: actions/upload-artifact@v4
         with:
           name: test-logs
           path: logs/
 
       - name: 📤 Upload Allure Report
-        uses: actions/upload-artifact@v3.1.3
+        uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: target/allure-report/
