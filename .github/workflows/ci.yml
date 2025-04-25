@@ -53,12 +53,14 @@ jobs:
 #        continue-on-error: true  # Optional: avoid failing workflow if no Allure files
 
       - name: 📤 Upload TestNG Report
+        if: always()  # Ensures it runs even if tests fail
         uses: actions/upload-artifact@v4
         with:
           name: testng-report
           path: test-output/emailable-report.html
 
       - name: 📤 Upload Logs
+        if: always()  # Ensures it runs even if tests fail
         uses: actions/upload-artifact@v4
         with:
           name: test-logs
