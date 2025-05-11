@@ -16,7 +16,6 @@ import selenium.utils.selenium.sessionManager;
 import java.time.Duration;
 import java.util.Set;
 
-@Listeners({AllureTestNg.class})
 public class BaseTest {
     protected WebDriver driver;
     protected WebDriverWait webDriverWait;
@@ -28,37 +27,34 @@ public class BaseTest {
     protected Logger logger;
 
 
-
-
-
     @BeforeMethod
     @Parameters("browser")
     public void setup(@Optional("firefox") String browser) {
 
         DriverManager.initDriver(browser);
-        logger=DriverManager.getLogger();
-        logger.info("running before test");
+        logger = DriverManager.getLogger();
+        logger.info("running before method");
         driver = DriverManager.getDriver();
-        webDriverWait=new WebDriverWait(driver, Duration.ofSeconds(10));
+        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         baseUrl = ConfigReader.getProperty("baseUrl");
         logger.info("🔹 Running login test with base URL: " + baseUrl);
         driver.get(baseUrl);
         loginPage = new LoginPage(driver);
-        forgotLoginPage= new ForgotLoginPage(driver);
-        dashboard=new DashboardPage(driver);
-        adminPage= new AdminPage(driver);
+        forgotLoginPage = new ForgotLoginPage(driver);
+        dashboard = new DashboardPage(driver);
+        adminPage = new AdminPage(driver);
 
 
     }
 
-    public void loginFlow(){
-        String user=ConfigReader.getProperty("username");
-        String pass=ConfigReader.getProperty("password");
+    public void loginFlow() {
+        String user = ConfigReader.getProperty("username");
+        String pass = ConfigReader.getProperty("password");
         loginPage.waitForLoginForm();
         loginPage.enterUsername(user);
         loginPage.enterPassword(pass);
         loginPage.submitForm();
-        Set<Cookie> cookieSet=driver.manage().getCookies();
+        Set<Cookie> cookieSet = driver.manage().getCookies();
         sessionManager.saveCookies(cookieSet);
     }
 

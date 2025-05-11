@@ -70,8 +70,8 @@ public abstract class BasePage {
     }
 
     public void moveByOffset(int x, int y ){
-         Action action=actions.moveByOffset(x,y).click().build();
-         action.perform();
+         Action action=actions.moveByOffset(x,y).click().build();// combines action into single executable unit
+         action.perform(); //executes the action
     }
     public String getCurrentWindow(){
         return driver.getWindowHandle();

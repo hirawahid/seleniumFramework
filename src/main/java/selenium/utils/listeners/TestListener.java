@@ -1,6 +1,7 @@
 package selenium.utils.listeners;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.IMethodInstance;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import selenium.base.BaseTest;
@@ -17,5 +18,16 @@ public class TestListener implements ITestListener {
 
         if (driver != null) {
             ScreenShotUtility.takeScreenShot(driver, result.getName());
-        }    }
+        }
+    }
+
+    @Override
+    public void onTestSuccess(ITestResult result){
+        System.out.println(result.getMethod().getMethodName()+ " passed");
+    }
+
+    @Override
+    public void onTestFailedWithTimeout(ITestResult result){
+        System.out.println(result.getMethod().getMethodName()+ " failed with timeout");
+    }
 }

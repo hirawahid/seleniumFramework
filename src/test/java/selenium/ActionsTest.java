@@ -3,10 +3,13 @@ package selenium;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import selenium.base.BaseTest;
 
@@ -15,7 +18,6 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.*;
 import java.util.NoSuchElementException;
-import java.util.function.Function;
 
 public class ActionsTest extends BaseTest {
 
@@ -51,7 +53,11 @@ public class ActionsTest extends BaseTest {
         Assert.assertFalse(slidable.getAttribute("style").split(":")[1].strip().equalsIgnoreCase("0%"));
 
         org.openqa.selenium.interactions.Actions slide=new org.openqa.selenium.interactions.Actions(driver);
-        slide.clickAndHold(slidable).moveByOffset(70,0).release().perform();
+        slide.clickAndHold(slidable)
+                .moveByOffset(70,0)
+                .release().build()
+                .perform();
+
 
         Assert.assertFalse(slidable.getAttribute("style").split(":")[1].strip().equalsIgnoreCase("0%"));
     }
@@ -442,6 +448,106 @@ public class ActionsTest extends BaseTest {
         }
         System.out.println(result);
     }
+    @Test
+    public void shadowDomPractice(){
+        System.out.println("running shadow dom test");
+            driver.get("https://books-pwakit.appspot.com/");
+            System.out.println("got driver");
+            WebElement shadowHost = driver.findElement(By.cssSelector("book-app"));
+            System.out.println("got shadow host");
 
+            WebElement searchInput = (WebElement) ((JavascriptExecutor) driver).executeScript(
+                    "return arguments[0].shadowRoot.querySelector('app-header app-toolbar.toolbar-bottom book-input-decorator input')",
+                    shadowHost);
+            System.out.println("got input");
+
+
+            searchInput.click();
+            System.out.println("got clicked");
+
+            ((JavascriptExecutor) driver).executeScript(
+                    "arguments[0].value = 'Harry Potter';" +
+                            "arguments[0].dispatchEvent(new Event('input', { bubbles: true }));",
+                    searchInput);
+    }
+
+    //dynamic table test
+
+    @Test
+    public void dynamicTable() throws InterruptedException {
+        driver.get(" https://datatables.net/examples/data_sources/ajax.html");
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("table#example")));
+        boolean found=false;
+       int i=0;
+       do{
+           if(searchInVisibleRows()){
+               System.out.println("found");
+               found=true;
+               break;
+           }
+           else{
+               List<WebElement> pages=driver.findElements(By.xpath("//button[@class='dt-paging-button' and not(contains(@class,'current'))]"));
+               if(i<pages.size()) {
+                   Thread.sleep(2000);
+                   pages.get(i).click();
+                   i++;
+               }else {
+               break;
+               }
+           }
+       }while(true);
+
+       Assert.assertTrue(found,"data not found");
+
+    }
+
+    public boolean searchInVisibleRows(){
+        List<WebElement> rows= driver.findElements(By.xpath("//table[@id='example']/tbody/tr"));
+        for(WebElement row : rows){
+            List<WebElement> data=row.findElements(By.tagName("td"));
+            if(data.size()>=2) {
+                String name = data.get(0).getText();
+                String position = data.get(1).getText();
+                if (name.equalsIgnoreCase("Ashton Cox") && position.equalsIgnoreCase("Junior Technical Author"))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    @Test
+    public void mouseHover(){
+        driver.get("https://rahulshettyacademy.com/AutomationPractice/#top");
+        WebElement button=driver.findElement(By.cssSelector("button#mousehover"));
+        Actions actions=new Actions(driver);
+        JavascriptExecutor js=(JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);",button);
+        actions.moveToElement(button).build().perform();
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.mouse-hover-content")));
+        List<WebElement> list=driver.findElements(By.cssSelector("div.mouse-hover-content a"));
+        System.out.println(list.size());
+    }
+
+    @Test
+    public void keysAction() throws InterruptedException {
+        driver.get("https://rahulshettyacademy.com/AutomationPractice/#top");
+        WebElement input=driver.findElement(By.xpath("//table[@id='product']//td[text()='Smith']"));
+
+        JavascriptExecutor js=(JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);",input);
+
+
+        Thread.sleep(2000);
+    }
+
+    @Test
+    public void scrollInsideTavle() throws InterruptedException {
+        driver.get("https://rahulshettyacademy.com/AutomationPractice/#top");
+        WebElement table=driver.findElement(By.cssSelector("table#product"));
+        JavascriptExecutor js=(JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);",table);
+
+        Thread.sleep(2000);
+    }
 }
 

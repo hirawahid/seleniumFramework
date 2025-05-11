@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 @Feature("Dashboard Feature")
+@Test
 public class UITests extends BaseTest {
     @BeforeMethod
     public void dashboadSetup(){
@@ -37,7 +38,6 @@ public class UITests extends BaseTest {
     //    }
     }
 
-    @Test
     public void test_upgradePage(){
         logger.info("test_upgradePage");
         AdminPage ap=dashboard.goToAdminPage();
@@ -46,7 +46,7 @@ public class UITests extends BaseTest {
 
     }
 
-    @Test
+
     public void test_AdminPage(){
         logger.info("test_Admin page");
         UpgradePage up=dashboard.clickUpgradeButton();
@@ -56,13 +56,13 @@ public class UITests extends BaseTest {
 
     }
 
-    @Test
+
     public void test_Buzz(){
         logger.info("test_buzz");
         dashboard.scrollToBuzzItem();
     }
 
-    @Test
+
     public void test_EmployeeAlert(){
         logger.info("test_employee alert");
         dashboard.clickEmployeeSetting();

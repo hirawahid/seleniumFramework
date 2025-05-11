@@ -1,0 +1,7 @@
+<suite name="ParallelInstancesSuite" parallel="instances" thread-count="3">
+    <test name="TestClass">
+        <classes>
+            <class name="selenium.FactoryTest" />
+        </classes>
+    </test>
+</suite>

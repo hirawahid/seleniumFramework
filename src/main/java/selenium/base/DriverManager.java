@@ -45,15 +45,15 @@ public class DriverManager {
             } else if (browser.equalsIgnoreCase("firefox")) {
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions options = new FirefoxOptions();
-                options.setHeadless(true);
+                //options.setHeadless(true);
                 options.addPreference("app.update.auto", false);
                 options.addPreference("app.update.enabled", false);
                 driver.set(new FirefoxDriver(options));
             } else {
                 throw new IllegalArgumentException("Invalid browser: " + browser);
             }
-        }catch (MalformedURLException e){
-            System.out.println("Error initializing driver "+e.getMessage());
+        } catch (MalformedURLException e) {
+            System.out.println("Error initializing driver " + e.getMessage());
         }
         String logName = browser + "_Thread-" + Thread.currentThread().getId();
         System.setProperty("log.name", logName);
@@ -67,6 +67,7 @@ public class DriverManager {
     public static WebDriver getDriver() {
         return driver.get();
     }
+
     public static Logger getLogger() {
         return logger.get();
     }
@@ -77,10 +78,5 @@ public class DriverManager {
             driver.remove();
         }
     }
-
-
-
-
-
 }
 

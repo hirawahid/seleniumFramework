@@ -3,11 +3,14 @@
 <suite name="SeleniumTestSuite" parallel="tests" thread-count="2">
    <listeners>
        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
-       <listener class-name="selenium.utils.listeners.RetryListener"/>
+<!--       <listener class-name="selenium.utils.listeners.RetryListener"/>-->
        <listener class-name="selenium.utils.listeners.TestListener"/>
         <listener class-name="org.testng.reporters.EmailableReporter"/>
        <listener class-name="selenium.utils.listeners.ExecutionListener"/>
        <listener class-name="org.testng.reporters.XMLReporter"/>
+       <listener class-name="selenium.utils.listeners.ConditionalMethodInterceptor"/>
+
+
    </listeners>
 
 <!--    <test name="ChromeTest">-->
@@ -20,9 +23,16 @@
 
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
+        <parameter name="url" value="https://books-pwakit.appspot.com/"/>
         <classes>
 <!--            <class name="selenium.LoginTest"/>-->
-            <class name="selenium.UITests"/>
+            <class name="selenium.LoginTest">
+<!--                <methods>-->
+<!--                    <exclude name="test_forgot_Login"/>-->
+<!--                    <exclude name="test_invalid_login"/>-->
+<!--                </methods>-->
+            </class>
+<!--            <class name="selenium.UITests"/>-->
         </classes>
     </test>
 
