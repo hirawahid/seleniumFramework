@@ -19,7 +19,7 @@ import java.time.Duration;
 @CucumberOptions(
         features = "src/test/resources/features",  // Path to your feature files
         glue = {"selenium/stepDefs","selenium.utils" }, // Package containing your step definition classes
-        plugin = {"pretty", "html:target/cucumber-reports"},  // Reporting and output plugins
+        plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber-report.json"},  // Reporting and output plugins
         tags = "not @Ignore"
 //dryRun=true
 )
