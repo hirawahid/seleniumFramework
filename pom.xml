@@ -117,7 +117,7 @@
 <!--                </configuration>-->
                 <configuration>
                     <includes>
-                        <include>**/CucumberTestRunner.java</include>
+                        <include>**/CucumberTestRunner*</include>
                     </includes>
                 </configuration>
             </plugin>
