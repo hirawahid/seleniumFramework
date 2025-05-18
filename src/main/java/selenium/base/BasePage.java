@@ -1,5 +1,6 @@
 package selenium.base;
 
+import io.cucumber.java.en.Then;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;

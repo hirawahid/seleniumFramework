@@ -1,8 +1,6 @@
 package selenium.base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.units.qual.C;
-import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -11,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import selenium.pages.LoginPage;
 import selenium.utils.ConfigReader;
 
 import java.net.MalformedURLException;
@@ -67,6 +66,7 @@ public class DriverManager {
     public static WebDriver getDriver() {
         return driver.get();
     }
+
     public static Logger getLogger() {
         return logger.get();
     }
@@ -78,7 +78,14 @@ public class DriverManager {
         }
     }
 
-
+    public static <T> T getPage(Class<T> pageClass) {
+        try {
+            return pageClass.getDeclaredConstructor(WebDriver.class)
+                    .newInstance(getDriver());
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to create page: " + pageClass, e);
+        }
+    }
 
 
 

@@ -15,7 +15,7 @@ public class DashboardPage extends BasePage {
     By buzzWidget=By.xpath("//p[contains(.,'Buzz Latest Posts')]//parent::div/parent::div/following-sibling::div//div[contains(@class,'oxd-grid-item')]");
     By employeesOnleaveSettings=By.xpath("//p[text()='Employees on Leave Today']//parent::div//following-sibling::i");
     By alert=By.xpath("//div[contains(@class,'orangehrm-dialog-modal')]");
-
+    By leaveButton=By.xpath("//span[text()='Leave']");
     public String dashboardWindow;
 
 

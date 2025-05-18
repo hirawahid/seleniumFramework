@@ -1,18 +1,24 @@
 package apiTests;
 
+import io.cucumber.java.en.Given;
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
 
 public class ApiTests {
 
@@ -32,7 +38,9 @@ public class ApiTests {
     @Test
     public void postTest(){
         JSONObject res=new JSONObject();
-        Response response=given().contentType(ContentType.JSON).body(res).when().get("/posts/1").then().statusCode(200).extract().response();
+        Response response=given()
+               // .contentType(ContentType.JSON)
+                .body(res).when().get("/posts/1").then().statusCode(200).extract().response();
         response.prettyPrint();
 
        // JSONObject res=new JSONObject(response.asString());
@@ -302,5 +310,131 @@ public class ApiTests {
     //TODO: query params
     //TODO: SESSION support
     //given().relaxedHTTPSValidation()
+
+    @Test
+    public void getTest1(){
+        RequestSpecification requestSpecification=new RequestSpecBuilder()
+                .setBaseUri("https://jsonplaceholder.typicode.com")
+                .setBasePath("/posts/1").setContentType(ContentType.JSON).build();
+
+        ResponseSpecification resSpec=new ResponseSpecBuilder().expectContentType("application/json").expectStatusCode(200)
+                .expectResponseTime(lessThan(1000L)).build();
+
+        int id= given()
+                .spec(requestSpecification)
+                .get().then()
+                .spec(resSpec)
+//                .statusCode(200)
+//                .header("Content-Type",containsString("application/json"))
+//                .body("userId",equalTo(1))
+                .extract()
+                .path("userId");
+       System.out.println(id);
+    }
+
+    @Test
+    public void TestPathParam(){
+        RestAssured.baseURI="https://jsonplaceholder.typicode.com/";
+
+        Response res=given().log().all()
+               .contentType(ContentType.JSON)
+                .basePath("posts/{posts}")
+                .pathParam("posts","1")
+                .queryParam("ncr","1")
+                .when()
+                .get()
+                .then()
+                .time(lessThan(1000L))
+                .statusCode(200)
+                .extract()
+                .response();
+        System.out.println(res.getTimeIn(TimeUnit.MILLISECONDS));
+        System.out.println(res.headers());
+        System.out.println(res.contentType());
+        System.out.println(res.cookies());
+        System.out.println(res.statusLine());
+        System.out.println(res.sessionId());
+    }
+
+    @Test
+    public void testPost1(){
+        RequestSpecification req= new RequestSpecBuilder()
+                .setBaseUri("https://run.mocky.io/")
+                .setBasePath("v3/")
+                .setContentType(ContentType.JSON)
+                .build();
+
+        ResponseSpecification res=new ResponseSpecBuilder()
+                .expectContentType(ContentType.JSON)
+                .expectStatusCode(200)
+                .expectResponseTime(lessThan(1000L))
+                .build();
+
+        JSONObject body=new JSONObject();
+        body.put("email","eve.holt@reqres.in");
+        body.put("password","cityslicka");
+
+        String token=RestAssured.given()
+                .spec(req).log().all()
+                .body(body.toString())
+                .when()
+                .post("2fdf0f97-174e-4ad3-9fec-c99cad6bf005")
+                .then()
+                .spec(res)
+                .extract()
+                .path("token");
+        System.out.println(token);
+
+    }
+
+    @Test
+    public void deteleuser(){
+        RestAssured.baseURI="https://68279d5f6b7628c52910f090.mockapi.io";
+        given()
+                .pathParam("userId","1")
+                .when()
+                .delete("/users/{userId}")
+                .then()
+                .statusCode(200);
+
+        given().contentType(ContentType.JSON).when().get("/users/1").then().statusCode(404);
+    }
+
+    @Test
+    public void putuser(){
+        RestAssured.baseURI="https://68279d5f6b7628c52910f090.mockapi.io";
+        JSONObject body=new JSONObject();
+        body.put("gender123","male");
+//        body.put("createdAt","2025-05-16T00:48:02.753Z");
+//        body.put("avatar","https://avatars.githubusercontent.com/u/62641508");
+
+        given()
+                .contentType(ContentType.JSON)
+              //  .pathParam("userId","1")
+                .when()
+                .body(body.toString())
+                .patch("/users/22")
+                .then()
+                .statusCode(200);
+
+      //  given().contentType(ContentType.JSON).when().get("/users/1").then().statusCode(404);
+    }
+
+    @Test
+    public void sendFile(){
+
+        RestAssured.baseURI="https://postman-echo.com/";
+        JSONObject type=new JSONObject();
+        type.put("documentType","resume");
+        File toSend=new File("HiraWahid.pdf");
+        given().contentType(ContentType.MULTIPART)
+                .multiPart(toSend)
+                .multiPart("form-data",type.toString())
+                .when()
+                .post("post")
+                .then()
+                .statusCode(200).log().all();
+
+    }
 
 }

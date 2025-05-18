@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import selenium.base.BaseTest;
+import selenium.base.DriverManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import java.util.NoSuchElementException;
 import java.util.function.Function;
 
 public class ActionsTest extends BaseTest {
+    WebDriver driver= DriverManager.getDriver();
 
     @Test
     public void test_actions_hover_rightClick(){

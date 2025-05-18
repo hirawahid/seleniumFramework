@@ -21,8 +21,8 @@
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-<!--            <class name="selenium.LoginTest"/>-->
-            <class name="selenium.UITests"/>
+            <class name="selenium.LoginTest"/>
+<!--            <class name="selenium.UITests"/>-->
         </classes>
     </test>
 

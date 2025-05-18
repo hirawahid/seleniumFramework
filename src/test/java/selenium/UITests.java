@@ -2,12 +2,15 @@ package selenium;
 
 import io.qameta.allure.Feature;
 import org.openqa.selenium.Cookie;
+import org.slf4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import selenium.base.BaseTest;
+import selenium.base.DriverManager;
 import selenium.pages.AdminPage;
+import selenium.pages.DashboardPage;
 import selenium.pages.UpgradePage;
 import selenium.utils.selenium.sessionManager;
 import selenium.utils.testNgUtils.retryAnalyzer;
@@ -17,6 +20,9 @@ import java.util.Set;
 
 @Feature("Dashboard Feature")
 public class UITests extends BaseTest {
+    Logger logger= DriverManager.getLogger();
+    DashboardPage dashboard=DriverManager.getPage(DashboardPage.class);
+
     @BeforeMethod
     public void dashboadSetup(){
         logger.info("running before method");

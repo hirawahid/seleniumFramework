@@ -1,5 +1,9 @@
 package selenium.pages;
 
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.qameta.allure.Step;
 import io.qameta.allure.testng.AllureTestNg;
 import org.openqa.selenium.By;
@@ -31,27 +35,27 @@ public class LoginPage extends BasePage {
         return getElementText(driver.findElement(heading));
     }
 
-    @Step("Wait for login form to be visible")
+    @Given("I wait for the login form to be available")
     public void waitForLoginForm() {
         waitForElementVisibility(loginForm);
     }
 
-    @Step("Wait for the URL to contain 'dashboard'")
+    @Step("Wait for the dashboard page to be loaded")
     public void waitForURLToContainDashboard() {
         waitForUrlToContain("dashboard");
     }
 
-    @Step("Enter Username: {0}")
+    @Step("Enter username `{0}`")
     public void enterUsername(String user) {
         enterText(username, user);
     }
 
-    @Step("Enter Password: {0}")
+    @Step("Enter password `{0}`")
     public void enterPassword(String pass) {
         enterText(password, pass);
     }
 
-    @Step("Submit Login Form")
+    @Step("submit login form")
     public void submitForm() {
         clickElement(loginButton);
     }
@@ -65,12 +69,12 @@ public class LoginPage extends BasePage {
         waitForElementVisibility(By.xpath("//h6"));
     }
 
-    @Step("Verify Success Response")
-    public void verifySuccess() {
-        waitForURLToContainDashboard();
-        verifyDashboardUrl();
-        verifyCookie();
-        verifyHeading();
+    @Step("Verify user dropdown")
+    public void verifyUserDropDown() {
+//        waitForURLToContainDashboard();
+//        verifyDashboardUrl();
+//        verifyCookie();
+//        verifyHeading();
         super.verifyUserDropDown(heading);
     }
 
@@ -88,16 +92,20 @@ public class LoginPage extends BasePage {
 
     }
 
+    @Step("Verify the URL contains 'dashboard'")
     public void verifyDashboardUrl() {
         Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"), "URL doesn't contain 'dashboard'");
     }
-
+    @Step("Verify the user cookie is set")
     public void verifyCookie() {
         Assert.assertNotNull(getCookie("orangehrm"), "Cookie 'orangehrm' is null");
     }
 
+    @Step("Verify the heading on the dashboard")
+    @Then("I verify the heading")
     public void verifyHeading() {
         waitForHeading();
         Assert.assertEquals(getHeadingText(), "Dashboard", "Heading text is incorrect");
     }
+
 }

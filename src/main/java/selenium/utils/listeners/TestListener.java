@@ -13,7 +13,7 @@ public class TestListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         DriverManager.getLogger().info("Taking screenshot: on testFailure event ");
         Object testClass = result.getInstance();
-        WebDriver driver = ((BaseTest) testClass).getDriver(); // Get WebDriver from BaseTest
+        WebDriver driver = ((DriverManager) testClass).getDriver(); // Get WebDriver from BaseTest
 
         if (driver != null) {
             ScreenShotUtility.takeScreenShot(driver, result.getName());
