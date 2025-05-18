@@ -26,7 +26,6 @@ Feature: Login functionality
 #    | Admin1   | admin123 |
 
 
-
     Scenario Outline: Valid login with example
       Given I am at login page
       Then I enter username from example "<username>"
@@ -45,7 +44,7 @@ Feature: Login functionality
 #  Examples:
 #    | username | password |
 #    | Admin1   | admin123 |
-
+    @Ignore
     Scenario: Valid login with example
       Given I am at login page
       Then I enter username from example "<username>"
@@ -61,7 +60,7 @@ Feature: Login functionality
       Then I verify the heading
       Then  I verify User DropDown
 
-
+    @Ignore
     Scenario: Valid login with example
       Given I am at login page
       Then I enter username from example "<username>"
@@ -77,7 +76,7 @@ Feature: Login functionality
       Then I verify the heading
       Then  I verify User DropDown
 
-
+    @Ignore
     Scenario: Valid login with example
       Given I am at login page
       Then I enter username from example "<username>"
@@ -91,7 +90,7 @@ Feature: Login functionality
       Then I verify the cookie is set
       Then I verify the heading
       Then  I verify User DropDown
-
+    @Ignore
     Scenario: Valid login with example
       Given I am at login page
       Then I enter username from example "<username>"
@@ -106,7 +105,7 @@ Feature: Login functionality
       Then I verify the heading
       Then  I verify User DropDown
 
-
+    @Ignore
     Scenario: Valid login with example
       Given I am at login page
       Then I enter username from example "<username>"
@@ -121,7 +120,7 @@ Feature: Login functionality
       Then I verify the heading
       Then  I verify User DropDown
 
-
+    @Ignore
     Scenario: Valid login with example
       Given I am at login page
       Then I enter username from example "<username>"

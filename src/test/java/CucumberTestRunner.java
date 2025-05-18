@@ -1,5 +1,3 @@
-package selenium.runners;
-
 import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.qameta.allure.Attachment;
