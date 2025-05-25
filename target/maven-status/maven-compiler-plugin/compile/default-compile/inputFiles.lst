@@ -4,9 +4,14 @@
 /Users/hira.wahid/UITestFramework/src/main/java/selenium/pages/AdminPage.java
 /Users/hira.wahid/UITestFramework/src/main/java/selenium/pages/DashboardPage.java
 /Users/hira.wahid/UITestFramework/src/main/java/selenium/pages/ForgotLoginPage.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/pages/LeavePage.java
 /Users/hira.wahid/UITestFramework/src/main/java/selenium/pages/LoginPage.java
 /Users/hira.wahid/UITestFramework/src/main/java/selenium/pages/UpgradePage.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/stepDefs/LeavesSteps.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/stepDefs/LoginSteps.java
 /Users/hira.wahid/UITestFramework/src/main/java/selenium/utils/ConfigReader.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/utils/Hooks.java
+/Users/hira.wahid/UITestFramework/src/main/java/selenium/utils/listeners/ExecutionListener.java
 /Users/hira.wahid/UITestFramework/src/main/java/selenium/utils/listeners/RetryListener.java
 /Users/hira.wahid/UITestFramework/src/main/java/selenium/utils/listeners/TestListener.java
 /Users/hira.wahid/UITestFramework/src/main/java/selenium/utils/selenium/ScreenShotUtility.java

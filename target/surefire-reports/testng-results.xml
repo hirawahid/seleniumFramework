@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="7" passed="5" failed="2" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-21T17:58:34 GMT+03:00" name="SeleniumTestSuite" finished-at="2025-04-21T17:59:29 GMT+03:00" duration-ms="54622">
+  <suite started-at="2025-05-23T15:00:31 GMT+03:00" name="Surefire suite" finished-at="2025-05-23T15:00:47 GMT+03:00" duration-ms="16298">
     <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberTestRunner@14dd7b39]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-04-21T17:58:34 GMT+03:00" name="FirefoxTest" finished-at="2025-04-21T17:59:29 GMT+03:00" duration-ms="54622">
-      <class name="selenium.UITests">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:34 GMT+03:00" name="setup" finished-at="2025-04-21T17:58:38 GMT+03:00" duration-ms="4488" status="PASS">
+    <test started-at="2025-05-23T15:00:31 GMT+03:00" name="Surefire test" finished-at="2025-05-23T15:00:47 GMT+03:00" duration-ms="16298">
+      <class name="CucumberTestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:CucumberTestRunner@14dd7b39]" started-at="2025-05-23T15:00:31 GMT+03:00" name="setUpClass" finished-at="2025-05-23T15:00:31 GMT+03:00" duration-ms="235" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@15fc442]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:CucumberTestRunner@14dd7b39]" started-at="2025-05-23T15:00:31 GMT+03:00" name="setup" finished-at="2025-05-23T15:00:35 GMT+03:00" duration-ms="3996" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,235 +32,60 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="dashboadSetup()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:38 GMT+03:00" name="dashboadSetup" finished-at="2025-04-21T17:58:40 GMT+03:00" duration-ms="1814" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- dashboadSetup -->
-        <test-method signature="test_AdminPage()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:40 GMT+03:00" name="test_AdminPage" finished-at="2025-04-21T17:58:44 GMT+03:00" duration-ms="3385" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberTestRunner@14dd7b39]" started-at="2025-05-23T15:00:35 GMT+03:00" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-23T15:00:47 GMT+03:00" duration-ms="11933" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Valid login with example"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[null]]>
+              <![CDATA[Expected condition failed: waiting for url to contain "dashboard". Current url: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'RUHHQMDD-MB003', ip: '2001:16a2:ca73:8000:3182:638e:f55b:c15d%en0', os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '23.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 96.0.3, moz:accessibilityChecks: false, moz:buildID: 20220126154723, moz:debuggerAddress: localhost:57740, moz:geckodriverVersion: 0.31.0, moz:headless: true, moz:processID: 33832, moz:profile: /var/folders/wl/zpw609m9197..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platformName: MAC, platformVersion: 23.5.0, proxy: Proxy(), se:cdp: ws://localhost:57740/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 8d9181ee-798a-42fa-a483-ba56228ab848]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: null
-at org.testng.Assert.fail(Assert.java:110)
-at org.testng.Assert.fail(Assert.java:115)
-at selenium.UITests.test_AdminPage(UITests.java:53)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:829)
-at org.testng.TestRunner.run(TestRunner.java:602)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:475)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:58)
-at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-at java.base/java.lang.Thread.run(Thread.java:1575)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for url to contain "dashboard". Current url: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'RUHHQMDD-MB003', ip: '2001:16a2:ca73:8000:3182:638e:f55b:c15d%en0', os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '23.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 96.0.3, moz:accessibilityChecks: false, moz:buildID: 20220126154723, moz:debuggerAddress: localhost:57740, moz:geckodriverVersion: 0.31.0, moz:headless: true, moz:processID: 33832, moz:profile: /var/folders/wl/zpw609m9197..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platformName: MAC, platformVersion: 23.5.0, proxy: Proxy(), se:cdp: ws://localhost:57740/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 8d9181ee-798a-42fa-a483-ba56228ab848
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+at selenium.base.BasePage.waitForUrlToContain(BasePage.java:61)
+at selenium.pages.LoginPage.waitForURLToContainDashboard(LoginPage.java:45)
+at selenium.stepDefs.LoginSteps.waitForDashboard(LoginSteps.java:77)
+at ✽.I wait for dashboard to be loaded(file:///Users/hira.wahid/UITestFramework/src/test/resources/features/login.feature:34)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_AdminPage -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:44 GMT+03:00" name="afterMethod" finished-at="2025-04-21T17:58:44 GMT+03:00" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="cleanupSession()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:44 GMT+03:00" name="cleanupSession" finished-at="2025-04-21T17:58:44 GMT+03:00" duration-ms="624" status="PASS">
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="cleanupSession()[pri:0, instance:CucumberTestRunner@14dd7b39]" started-at="2025-05-23T15:00:47 GMT+03:00" name="cleanupSession" finished-at="2025-05-23T15:00:47 GMT+03:00" duration-ms="51" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanupSession -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:44 GMT+03:00" name="setup" finished-at="2025-04-21T17:58:48 GMT+03:00" duration-ms="3689" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method is-config="true" signature="dashboadSetup()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:48 GMT+03:00" name="dashboadSetup" finished-at="2025-04-21T17:58:50 GMT+03:00" duration-ms="1851" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- dashboadSetup -->
-        <test-method signature="test_Buzz()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:50 GMT+03:00" name="test_Buzz" finished-at="2025-04-21T17:58:51 GMT+03:00" duration-ms="1105" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test_Buzz -->
-        <test-method is-config="true" signature="cleanupSession()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:51 GMT+03:00" name="cleanupSession" finished-at="2025-04-21T17:58:52 GMT+03:00" duration-ms="474" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- cleanupSession -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:51 GMT+03:00" name="afterMethod" finished-at="2025-04-21T17:58:51 GMT+03:00" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:52 GMT+03:00" name="setup" finished-at="2025-04-21T17:58:55 GMT+03:00" duration-ms="3744" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method is-config="true" signature="dashboadSetup()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:55 GMT+03:00" name="dashboadSetup" finished-at="2025-04-21T17:58:57 GMT+03:00" duration-ms="1696" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- dashboadSetup -->
-        <test-method signature="test_EmployeeAlert()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:58:57 GMT+03:00" name="test_EmployeeAlert" finished-at="2025-04-21T17:59:01 GMT+03:00" duration-ms="3584" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test_EmployeeAlert -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:59:01 GMT+03:00" name="afterMethod" finished-at="2025-04-21T17:59:01 GMT+03:00" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="cleanupSession()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:59:01 GMT+03:00" name="cleanupSession" finished-at="2025-04-21T17:59:01 GMT+03:00" duration-ms="470" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- cleanupSession -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:59:01 GMT+03:00" name="setup" finished-at="2025-04-21T17:59:05 GMT+03:00" duration-ms="3748" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method is-config="true" signature="dashboadSetup()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:59:05 GMT+03:00" name="dashboadSetup" finished-at="2025-04-21T17:59:07 GMT+03:00" duration-ms="1696" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- dashboadSetup -->
-        <test-method signature="test_upgradePage()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:59:07 GMT+03:00" name="test_upgradePage" finished-at="2025-04-21T17:59:09 GMT+03:00" duration-ms="2118" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: null
-at org.testng.Assert.fail(Assert.java:110)
-at org.testng.Assert.fail(Assert.java:115)
-at selenium.UITests.test_upgradePage(UITests.java:44)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:829)
-at org.testng.TestRunner.run(TestRunner.java:602)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:475)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:58)
-at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-at java.base/java.lang.Thread.run(Thread.java:1575)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test_upgradePage -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:59:09 GMT+03:00" name="afterMethod" finished-at="2025-04-21T17:59:09 GMT+03:00" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="cleanupSession()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:59:09 GMT+03:00" name="cleanupSession" finished-at="2025-04-21T17:59:09 GMT+03:00" duration-ms="441" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- cleanupSession -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:selenium.UITests@74f6c5d8]" started-at="2025-04-21T17:59:09 GMT+03:00" name="tearDown" finished-at="2025-04-21T17:59:09 GMT+03:00" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:CucumberTestRunner@14dd7b39]" started-at="2025-05-23T15:00:47 GMT+03:00" name="tearDown" finished-at="2025-05-23T15:00:47 GMT+03:00" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- selenium.UITests -->
-      <class name="selenium.LoginTest">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:selenium.LoginTest@1f760b47]" started-at="2025-04-21T17:59:09 GMT+03:00" name="setup" finished-at="2025-04-21T17:59:13 GMT+03:00" duration-ms="3723" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:CucumberTestRunner@14dd7b39]" started-at="2025-05-23T15:00:47 GMT+03:00" name="tearDownClass" finished-at="2025-05-23T15:00:47 GMT+03:00" duration-ms="22" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="test_invalid_login()[pri:1, instance:selenium.LoginTest@1f760b47]" started-at="2025-04-21T17:59:13 GMT+03:00" name="test_invalid_login" finished-at="2025-04-21T17:59:15 GMT+03:00" duration-ms="2201" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test_invalid_login -->
-        <test-method is-config="true" signature="cleanupSession()[pri:0, instance:selenium.LoginTest@1f760b47]" started-at="2025-04-21T17:59:15 GMT+03:00" name="cleanupSession" finished-at="2025-04-21T17:59:16 GMT+03:00" duration-ms="439" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- cleanupSession -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:selenium.LoginTest@1f760b47]" started-at="2025-04-21T17:59:16 GMT+03:00" name="setup" finished-at="2025-04-21T17:59:19 GMT+03:00" duration-ms="3701" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="test_valid_login()[pri:2, instance:selenium.LoginTest@1f760b47]" started-at="2025-04-21T17:59:19 GMT+03:00" name="test_valid_login" finished-at="2025-04-21T17:59:22 GMT+03:00" duration-ms="2560" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test_valid_login -->
-        <test-method is-config="true" signature="cleanupSession()[pri:0, instance:selenium.LoginTest@1f760b47]" started-at="2025-04-21T17:59:22 GMT+03:00" name="cleanupSession" finished-at="2025-04-21T17:59:22 GMT+03:00" duration-ms="441" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- cleanupSession -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:selenium.LoginTest@1f760b47]" started-at="2025-04-21T17:59:22 GMT+03:00" name="setup" finished-at="2025-04-21T17:59:26 GMT+03:00" duration-ms="3609" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="test_forgot_Login()[pri:3, instance:selenium.LoginTest@1f760b47]" started-at="2025-04-21T17:59:26 GMT+03:00" name="test_forgot_Login" finished-at="2025-04-21T17:59:28 GMT+03:00" duration-ms="2239" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test_forgot_Login -->
-        <test-method is-config="true" signature="cleanupSession()[pri:0, instance:selenium.LoginTest@1f760b47]" started-at="2025-04-21T17:59:28 GMT+03:00" name="cleanupSession" finished-at="2025-04-21T17:59:29 GMT+03:00" duration-ms="419" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- cleanupSession -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:selenium.LoginTest@1f760b47]" started-at="2025-04-21T17:59:29 GMT+03:00" name="tearDown" finished-at="2025-04-21T17:59:29 GMT+03:00" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- selenium.LoginTest -->
-    </test> <!-- FirefoxTest -->
-  </suite> <!-- SeleniumTestSuite -->
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- CucumberTestRunner -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
 </testng-results>

@@ -8,31 +8,23 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">SeleniumTestSuite</th></tr>
-<tr><td><a href="#t0">FirefoxTest</a></td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">54,622</td><td></td><td></td></tr>
+<tr><th colspan="8">Surefire suite</th></tr>
+<tr><td><a href="#t0">Surefire test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">16,298</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">SeleniumTestSuite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">FirefoxTest &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">selenium.UITests</td><td><a href="#m0">test_AdminPage</a></td><td rowspan="1">1745247520737</td><td rowspan="1">3385</td></tr><tr class="failedeven"><td><a href="#m1">test_upgradePage</a></td><td rowspan="1">1745247547065</td><td rowspan="1">2118</td></tr><tr><th colspan="4">FirefoxTest &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">selenium.LoginTest</td><td><a href="#m2">test_forgot_Login</a></td><td rowspan="1">1745247566349</td><td rowspan="1">2239</td></tr><tr class="passedeven"><td><a href="#m3">test_invalid_login</a></td><td rowspan="1">1745247553393</td><td rowspan="1">2201</td></tr><tr class="passedeven"><td><a href="#m4">test_valid_login</a></td><td rowspan="1">1745247559736</td><td rowspan="1">2560</td></tr><tr class="passedodd"><td rowspan="2">selenium.UITests</td><td><a href="#m5">test_Buzz</a></td><td rowspan="1">1745247530510</td><td rowspan="1">1105</td></tr><tr class="passedodd"><td><a href="#m6">test_EmployeeAlert</a></td><td rowspan="1">1745247537562</td><td rowspan="1">3584</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">CucumberTestRunner</td><td><a href="#m0">runScenario</a></td><td rowspan="1">1748001635901</td><td rowspan="1">11933</td></tr></tbody>
 </table>
-<h2>FirefoxTest</h2><h3 id="m0">selenium.UITests#test_AdminPage</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: null
-	at selenium.UITests.test_AdminPage(UITests.java:53)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1575)
-... Removed 17 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">selenium.UITests#test_upgradePage</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: null
-	at selenium.UITests.test_upgradePage(UITests.java:44)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1575)
-... Removed 17 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">selenium.LoginTest#test_forgot_Login</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">selenium.LoginTest#test_invalid_login</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">selenium.LoginTest#test_valid_login</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">selenium.UITests#test_Buzz</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">selenium.UITests#test_EmployeeAlert</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Surefire test</h2><h3 id="m0">CucumberTestRunner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Valid login with example&quot;</td><td>&quot;Login functionality&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for url to contain &quot;dashboard&quot;. Current url: &quot;https://opensource-demo.orangehrmlive.com/web/index.php/auth/login&quot; (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;RUHHQMDD-MB003&apos;, ip: &apos;2001:16a2:ca73:8000:3182:638e:f55b:c15d%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;14.5&apos;, java.version: &apos;23.0.2&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 96.0.3, moz:accessibilityChecks: false, moz:buildID: 20220126154723, moz:debuggerAddress: localhost:57740, moz:geckodriverVersion: 0.31.0, moz:headless: true, moz:processID: 33832, moz:profile: /var/folders/wl/zpw609m9197..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platformName: MAC, platformVersion: 23.5.0, proxy: Proxy(), se:cdp: ws://localhost:57740/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 8d9181ee-798a-42fa-a483-ba56228ab848
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at selenium.base.BasePage.waitForUrlToContain(BasePage.java:61)
+	at selenium.pages.LoginPage.waitForURLToContainDashboard(LoginPage.java:45)
+	at selenium.stepDefs.LoginSteps.waitForDashboard(LoginSteps.java:77)
+	at ✽.I wait for dashboard to be loaded(file:///Users/hira.wahid/UITestFramework/src/test/resources/features/login.feature:34)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

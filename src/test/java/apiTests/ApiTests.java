@@ -437,4 +437,18 @@ public class ApiTests {
 
     }
 
+    @Test
+    public void testGet1(){
+
+        RequestSpecification requestSpecification=new RequestSpecBuilder().setBaseUri("https://jsonplaceholder.typicode.com/")
+                .setBasePath("posts/1").build();
+        given().spec(requestSpecification)
+                .when()
+                .get()
+                .then()
+                .statusCode(200)
+                .body("userId",equalTo(1))
+                .body("id",equalTo(1));
+    }
+
 }

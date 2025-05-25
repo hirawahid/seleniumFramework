@@ -2,7 +2,7 @@ package practice;
 
 import java.util.Comparator;
 
-public class compareTask implements Comparator<task> {
+ class compareTask implements Comparator<task> {
     @Override
     public int compare(task o1, task o2){
         //Sort a List<Employee> by salary descending, then name ascending.

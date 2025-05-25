@@ -1,6 +1,7 @@
 package selenium.stepDefs;
 
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.DataTableType;
 import io.cucumber.java.DocStringType;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
@@ -158,5 +159,53 @@ public class LoginSteps {
     @And("I give the route:")
         public void iGiveTheRoute(JSONObject json) {
         System.out.println(json.get("origin"));
+    }
+
+    @Then("I use parameters")
+    public void iUseParameters(List<String> list) {
+        System.out.println(list);
+    }
+
+    @Then("I use parameters as map")
+    public void iUseParametersAsMap(List<Map<String,String>> map) {
+        System.out.println(map);
+    }
+
+    @Then("I use parameters as list")
+    public void iUseParametersAsList(List<List<String>> list) {
+        System.out.println(list);
+    }
+
+
+
+    class route{
+        String origin;
+        String destination;
+        public route(String o, String d){
+            this.origin=o;
+            this.destination=d;
+        }
+        public String getOrigin(){
+            return this.origin;
+        }
+
+        public String getDestination(){
+            return this.destination;
+        }
+
+        @Override
+        public String toString(){
+            return this.origin+"-"+this.destination;
+        }
+    }
+
+    @DataTableType
+    public route routeObj(Map<String,String> map){
+        return new route(map.get("origin"),map.get("destination"));
+    }
+
+    @Then("I use route class:")
+    public void iUseRouteClass(List<route> routes) {
+        System.out.println(routes.get(0));
     }
 }

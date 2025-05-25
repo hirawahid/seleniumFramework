@@ -25,7 +25,7 @@ Feature: Login functionality
 #    | username | password |
 #    | Admin1   | admin123 |
 
-
+    @Ignore
     Scenario Outline: Valid login with example
       Given I am at login page
       Then I enter username from example "<username>"
@@ -170,3 +170,31 @@ Feature: Login functionality
       Examples:
         | username | password |
         | Admin    | admin    |
+    @Ignore
+      Scenario: Testing
+        Given I am at login page
+        Then I use parameters
+        |apple|
+        |banana|
+    @Ignore
+    Scenario: Testing Map
+      Given I am at login page
+      Then I use parameters as map
+        |apple| papple|
+        |banana| pap1 |
+        |strawberry|pap2|
+
+    @Ignore
+    Scenario: Testing List
+      Given I am at login page
+      Then I use parameters as list
+        |apple| papple|
+        |banana| pap1 |
+        |strawberry|pap2|
+
+      Scenario: route test
+        Given I am at login page
+        Then I use route class:
+        |origin|destination|
+        |RUH   |JED        |
+
